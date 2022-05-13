@@ -2,7 +2,7 @@ package exercise;
 
 
 public class Korean {	
-	// 1. 필드 : (1)고유속성 (2)상태 (3)부품
+	// 1. 필드 : (1)고유속성 (2)상태 (3)부품 
 	String nation = "대한민국";
 	String name;
 	String ssn;
