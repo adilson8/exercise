@@ -1,4 +1,4 @@
-package exercise;
+package Lambda;
 
 @FunctionalInterface
 public interface SubFunctionalInterface {
