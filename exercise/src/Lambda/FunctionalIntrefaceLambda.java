@@ -25,7 +25,7 @@ public class FunctionalIntrefaceLambda {
 				if ( x % i == 0 ) {
 					return false;
 				} // if
-			} // for			
+			} // for
 			return true;					
 		};		
 		System.out.println(pnfi.isPrimeNumber(10));
