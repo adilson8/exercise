@@ -4,18 +4,23 @@ public class FunctionalIntrefaceLambda {
 	
 	public static void main (String[] args) {
 		
-		AddFunctionalIntreface afi = (x, y) -> { int result = x +y; return result; };
-		System.out.println(afi.add(5, 2));
+//		AddFunctionalIntreface afi = (x, y) -> { int result = x +y; return result; };
+//		AddFunctionalIntreface afi = (x, y) -> { return x +y; };
+		AddFunctionalIntreface afi = (x, y) -> x + y; 
+		System.out.println(afi.add(10, 3));
 		
-		MulFuntionalInterface mfi = (x, y) -> {int result = x * y; return result; };
-		System.out.println(mfi.mul(5, 2));
+//		MulFuntionalInterface mfi = (x, y) -> {int result = x * y; return result; };
+		MulFuntionalInterface mfi = (x, y) -> x * y;
+		System.out.println(mfi.mul(10, 3));
 		
-		SubFunctionalInterface sfi = (x, y) -> {int result = x - y; return result; };
-		System.out.println(sfi.sub(5, 2));
+//		SubFunctionalInterface sfi = (x, y) -> {int result = x - y; return result; };
+		SubFunctionalInterface sfi = (x, y) -> x - y;
+		System.out.println(sfi.sub(10, 3));
+		
 		
 		PrimeNumberFunctionalInterface pnfi;
-		
-		pnfi = (x) -> {
+//		pnfi = (x) -> {
+		pnfi = x -> {
 			for (int i = 2; i <= x / 2; i++) {
 				if ( x % i == 0 ) {
 					return false;
@@ -23,7 +28,8 @@ public class FunctionalIntrefaceLambda {
 			} // for			
 			return true;					
 		};		
-		System.out.println(pnfi.isPrimeNumber(14));
+		System.out.println(pnfi.isPrimeNumber(10));
+		System.out.println(pnfi.isPrimeNumber(3));
 		
 	} // main
 
