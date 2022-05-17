@@ -21,6 +21,11 @@ public class FunctionalIntrefaceLambda {
 		PrimeNumberFunctionalInterface pnfi;
 //		pnfi = (x) -> {
 		pnfi = x -> {
+			
+			if (x==1) {
+				return false;
+			} // if
+			
 			for (int i = 2; i <= x / 2; i++) {
 				if ( x % i == 0 ) {
 					return false;
