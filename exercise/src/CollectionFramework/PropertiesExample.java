@@ -8,9 +8,11 @@ public class PropertiesExample {
 	public static void main(String[] args) throws Exception {
 		Properties properties  = new Properties();  // 객체 생성
 		
-		String path = PropertiesExample.class.getResource("database.properties").getPath();
+		// Method Chaining 기법으로 최종 .properties 파일의 절대 경로 획득
+		String path = PropertiesExample.class. // Clazz 객체 획득
+				getResource("database.properties").getPath(); // method chaining
 		
-		path = URLDecoder.decode(path, "utf-8");
+	    path = URLDecoder.decode(path, "utf-8");
 		
 		properties.load(new FileReader(path));
 		
