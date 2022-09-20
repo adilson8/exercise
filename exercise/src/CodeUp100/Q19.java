@@ -15,7 +15,7 @@ public class Q19 {
 		int month = Integer.valueOf(arr[1]);
 		int day = Integer.valueOf(arr[2]);
 		
-		System.out.printf("%d.%02d.%02d", year, month, day);
+		System.out.printf("%04d.%02d.%02d", year, month, day);
 
 	} // main
 
