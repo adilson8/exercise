@@ -8,9 +8,9 @@ public class Q31 {
 
        Scanner scan = new Scanner(System.in);
        
-       long num = scan.nextLong();
+       int num = scan.nextInt();
        
-       System.out.println(num);
+       System.out.println(Integer.toOctalString(num));
     
 	} // main
 
