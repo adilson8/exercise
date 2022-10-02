@@ -7,11 +7,11 @@ public class Q37 {
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);	
+
+		int num = scan.nextInt();
+		char ch = (char) num;
 		
-		char ch = scan.nextLine().charAt(0);
-		int num = ch;
-		
-		System.out.println(num);		
+		System.out.println(ch);		
     
 	} // main
 
