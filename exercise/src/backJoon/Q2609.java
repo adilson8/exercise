@@ -57,45 +57,48 @@ public class Q2609 {
 		
 		//////////////////////////////////////////////////////////////
 		
-		List<Integer> num1BaesuList = new ArrayList<>();
-		List<Integer> num2BaesuList = new ArrayList<>();
-		int biggestGongbaesu = 0;
-		boolean isOver = true;
+//		List<Integer> num1BaesuList = new ArrayList<>();
+//		List<Integer> num2BaesuList = new ArrayList<>();
+//		int biggestGongbaesu = 0;
+//		boolean isOver = true;
+//		
+//		int i = 1;
+//		while(isOver){
+//			if (num1 > num2) {
+//				num1BaesuList.add(num1 * i);
+//				num2BaesuList.add(num2 * i);
+//				
+//				for(int num1Baesu : num1BaesuList){
+//					for (int num2Baesu : num2BaesuList){
+//						if (num1Baesu == num2Baesu){
+//							biggestGongbaesu = num1Baesu;
+//							isOver = false;
+//						} 
+//					}
+//				}		
+//				
+//				i++;
+//			} else {
+//				num2BaesuList.add(num2 * i);
+//				num1BaesuList.add(num1 * i);
+//				
+//				for(int num2Baesu : num2BaesuList){
+//					for (int num1Baesu : num1BaesuList){
+//						if (num2Baesu == num1Baesu){
+//							biggestGongbaesu = num2Baesu;
+//							isOver = false;
+//						} 
+//					}
+//				}
+//				
+//				i++;												
+//			}
+//		}
+//		
+//		System.out.println(biggestGongbaesu);
 		
-		int i = 1;
-		while(isOver){
-			if (num1 > num2) {
-				num1BaesuList.add(num1 * i);
-				num2BaesuList.add(num2 * i);
-				
-				for(int num1Baesu : num1BaesuList){
-					for (int num2Baesu : num2BaesuList){
-						if (num1Baesu == num2Baesu){
-							biggestGongbaesu = num1Baesu;
-							isOver = false;
-						} 
-					}
-				}		
-				
-				i++;
-			} else {
-				num2BaesuList.add(num2 * i);
-				num1BaesuList.add(num1 * i);
-				
-				for(int num2Baesu : num2BaesuList){
-					for (int num1Baesu : num1BaesuList){
-						if (num2Baesu == num1Baesu){
-							biggestGongbaesu = num2Baesu;
-							isOver = false;
-						} 
-					}
-				}
-				
-				i++;												
-			}
-		}
-		
-		System.out.println(biggestGongbaesu);	
+		int biggestGongbaesu = num1 * num2 / gonyaksuList.get(gonyaksuList.size() -1);
+		System.out.println(biggestGongbaesu);
 
 	}
 
