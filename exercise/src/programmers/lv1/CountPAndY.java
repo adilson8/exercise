@@ -8,6 +8,8 @@ public class CountPAndY {
 	
 	boolean solution(String s) {
         boolean answer = true;
+        
+        s = s.toLowerCase();
 		
 		int pNum = 0;
 		int yNum = 0;		
@@ -19,9 +21,9 @@ public class CountPAndY {
 //		List<String> list = new ArrayList<>(Arrays.asList(s.split("")));
 		
 		for(String a : list){
-			if (a.equals("p") || a.equals("P")) {
+			if (a.equals("p")) {
 				pNum++;
-			} else if (a.equals("y") || a.equals("Y")) {
+			} else if (a.equals("y")) {
 				yNum++;
 			}
 		}
