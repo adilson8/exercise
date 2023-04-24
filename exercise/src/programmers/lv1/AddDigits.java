@@ -9,7 +9,7 @@ public class AddDigits {
 
 		for(String num : arr) {			
 			answer = answer + Integer.parseInt(num);
-		}
+		} 
 		
 		System.out.println(answer);
         
