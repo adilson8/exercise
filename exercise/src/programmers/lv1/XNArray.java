@@ -1,8 +1,5 @@
 package programmers.lv1;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class XNArray {
 	
 	public long[] solution(int x, int n) {
