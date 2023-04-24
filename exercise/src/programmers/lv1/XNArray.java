@@ -6,19 +6,10 @@ import java.util.List;
 public class XNArray {
 	
 	public long[] solution(int x, int n) {
-        List<Long> list = new ArrayList<>();
+		long[] answer = new long[n];
 		
-		for(int i = 1; i <= n; i++){
-			list.add((long)x * i);
-		}
-		
-		
-		long[] answer = new long[list.size()];
-		
-		int idx = 0;
-		for (long num : list) {
-			answer[idx] = num;
-			idx++;
+		for (int i = 1; i <= n; i++){
+			answer[i-1] = (long)x * i;
 		}
 		
 		return answer;
