@@ -6,19 +6,15 @@ public class HandleString {
 	public boolean solution(String s) {
 		
         boolean answer = false;
-
         char[] arrS = s.toCharArray();
+        
         if (s.length() == 4 || s.length() == 6){
             for (int i = 0; i < s.length(); i++) {
-                if(arrS[i] == '0' || arrS[i] == '1'
-                || arrS[i] == '2' || arrS[i] == '3'
-                || arrS[i] == '4' || arrS[i] == '5'
-                || arrS[i] == '6' || arrS[i] == '7'
-                || arrS[i] == '8' || arrS[i] == '9'){
-                    answer = true;                  
+                if(arrS[i] < '0' || arrS[i] > '9'){
+                	answer = false;
+                	break;
                 } else {
-                    answer = false;
-                    break;
+                	answer = true;                  
                 }
             }
         } else {
