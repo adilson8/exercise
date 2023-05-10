@@ -2,25 +2,41 @@ package programmers.lv1;
 
 public class ReverseBase3 {
 	
-	public static void main (String[] args){
-		int n = 125;
-		
-		String temp = "";
+	public int solution(int n) {
+        // 앞뒤 반전된 3진법 수 구하기
+		String reversedBase3 = "";
 		boolean keepGoing = true;
 		while(keepGoing){
-			if (n/3 > 3){
-				temp = temp + Integer.toString(n%3);
+			if (n < 3) {
+				reversedBase3 = Integer.toString(n); 
+				break;
+			}
+			
+			if (n/3 >= 3){
+				reversedBase3 = reversedBase3 + Integer.toString(n%3);
 				n = n/3;
 			} else {
-				temp = temp + Integer.toString(n%3);				
-				temp = temp + Integer.toString(n/3);
+				reversedBase3 = reversedBase3 + Integer.toString(n%3);
+				reversedBase3 = reversedBase3 + Integer.toString(n/3);
 				break;
 			}
 		}
 		
-		int n2 = Integer.parseInt(temp);
-		System.out.println(n2);
+		// 앞뒤 반전된 3진법 수 다시 반전시키기
+		StringBuffer sb = new StringBuffer();
+		sb.append(reversedBase3);
+		String base3 = sb.reverse().toString();
+
+		// 3진법 수를 이용해 앞뒤 반전된 3진법 수를 10진법 수로 바꾸기
+		char[] base3Arr = base3.toCharArray();	
+		int answer = 0; 
+		int i = 1;
+		for (char c : base3Arr){
+			int num = Integer.parseInt(Character.toString(c));
+			answer = answer + (num*i);
+			i = i * 3;
+		}
 		
-		// 인제 밑에서 n2를 10진수로 바꾸면댐
-	}
+        return answer;
+    }
 }
