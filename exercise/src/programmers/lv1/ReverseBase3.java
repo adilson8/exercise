@@ -2,6 +2,7 @@ package programmers.lv1;
 
 public class ReverseBase3 {
 	
+	// https://school.programmers.co.kr/learn/courses/30/lessons/68935
 	public int solution(int n) {
         // 앞뒤 반전된 3진법 수 구하기
 		String reversedBase3 = "";
