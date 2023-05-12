@@ -2,6 +2,7 @@ package programmers.lv1;
 
 public class WeirdString {
 	
+	// https://school.programmers.co.kr/learn/courses/30/lessons/12930
 	public String solution(String s) {
 		// split(String regex)
 		// 아래와 같이 작성하면 문자열 가장 뒤의 공백들이 모두 삭제됨
