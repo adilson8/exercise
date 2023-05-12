@@ -5,6 +5,7 @@ import java.util.List;
 
 public class NoSameNums {
 	
+	// https://school.programmers.co.kr/learn/courses/30/lessons/12906
 	public int[] solution(int []arr) {
         List<Integer> list = new ArrayList<>();
 		list.add(arr[0]);
