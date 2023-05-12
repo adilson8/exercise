@@ -8,7 +8,6 @@ public class WalletSize {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/86491
 	public int solution(int[][] sizes) {
-        int[][] newSizes = new int[sizes.length][2];
 		List<Integer> list1 = new ArrayList<>();
 		List<Integer> list2 = new ArrayList<>();
 		
