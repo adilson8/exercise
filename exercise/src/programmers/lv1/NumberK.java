@@ -11,10 +11,11 @@ public class NumberK {
 		
 		int[] answer = new int[commands.length];
 		
-		for(int[] command : commands){
-			for (int i = 0; i < command.length; i++){
+		for(int i = 0; i < commands.length; i ++){
+			for (int j = 0; j < commands[i].length; j++){
 				
 			}
+			answer[i] = 0;
 		}
 		
 		System.out.println(Arrays.toString(answer));
