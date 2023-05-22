@@ -4,21 +4,28 @@ public class Coke {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/132267
 	public static void main (String[] args){
-		int a = 3;
-		int b = 1;
-		int n = 20;
-		
-		boolean keepGoing = true;
-		int answer = 0;
-		while (keepGoing) {
-			int newCoke = 0;
-			newCoke = n/a + n%a;
-			answer += newCoke;
-			System.out.println(newCoke);
-			break;
+		int a = 5;
+		int b = 3;
+		int n = 21;
+				
+		int bottles = 0;
+		while (true){
+			if (n/a >= 1){
+				System.out.println(((n/a)*b));
+				bottles += ((n/a)*b);
+			}
+			
+			System.out.println("n : " +n);
+			System.out.println("bottles : " + bottles);
+			if (n < a) {
+				break;
+			} else {
+				n = n/a + n%a;				
+			}
+			
+			System.out.println("==========");
 		}
-		
-		System.out.println(answer);
+		System.out.println(bottles);		
 	}
 
 }
