@@ -9,6 +9,7 @@ public class HallOfFame {
 		int k = 3;
 		int[] score = {10, 100, 20, 150, 1, 100, 200};
 		
+		
 		int[] answer = {1};
 		System.out.println(Arrays.toString(answer));
 	}
