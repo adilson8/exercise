@@ -17,8 +17,10 @@ public class HallOfFame {
 				hallOfFame[i] = score[i];
 				Arrays.sort(hallOfFame);
 			} else {
-				for (int j = 0; j < hallOfFame.length; j++){
-					
+				for (int j = hallOfFame.length; j <= 0; j--){
+					if (score[i] > hallOfFame[j]){
+						
+					}
 				}
 			}
 			
