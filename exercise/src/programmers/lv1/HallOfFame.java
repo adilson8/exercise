@@ -19,7 +19,7 @@ public class HallOfFame {
 			} else {
 				for (int j = hallOfFame.length; j <= 0; j--){
 					if (score[i] > hallOfFame[j]){
-						
+						// 여기에 작업
 					}
 				}
 			}
