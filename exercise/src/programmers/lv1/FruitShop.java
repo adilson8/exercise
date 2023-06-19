@@ -7,11 +7,14 @@ public class FruitShop {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/135808
 	public int solution(int k, int m, int[] score) {
+		
+//		Integer[] scoreWrapper = Arrays.stream(score).boxed().toArray(Integer[]::new);
+		
         Integer[] scoreWrapper = new Integer[score.length];
         for (int i = 0; i < scoreWrapper.length; i++){
             scoreWrapper[i] = score[i];
         }
-
+ 		
         Arrays.sort(scoreWrapper, Collections.reverseOrder());
 
         int boxes = scoreWrapper.length / m;
