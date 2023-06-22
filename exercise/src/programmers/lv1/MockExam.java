@@ -2,7 +2,10 @@ package programmers.lv1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MockExam {
 	
@@ -41,7 +44,27 @@ public class MockExam {
 				if (answers[i] == supo3long.get(i)) { supo3score++; }
  		}
 		
-//		int[] answer = {};
+		Map<Integer, Integer> map1 = new HashMap<>();
+		map1.put(1, supo1score);
+		Map<Integer, Integer> map2 = new HashMap<>();
+		map2.put(2, supo2score);
+		Map<Integer, Integer> map3 = new HashMap<>();
+		map3.put(3, supo3score);
+		
+		System.out.println(map1.toString());
+		System.out.println(map2.toString());
+		System.out.println(map3.toString());
+		
+		List<Map<Integer, Integer>> test = new ArrayList<>();
+		test.add(map1);
+		test.add(map2);
+		test.add(map3);
+		
+		System.out.println(test.toString());
+
+		
+		
+		//		int[] answer = {};
 //        System.out.println(answer);
         
 	}
