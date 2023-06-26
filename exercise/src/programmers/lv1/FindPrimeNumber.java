@@ -22,7 +22,7 @@ public class FindPrimeNumber {
 		System.out.println(answer);
 		
 		// 시간초과, 메서드로 빼서 다시 해보자
-		
+		// https://namu.wiki/w/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98%20%EC%B2%B4
 	}
 
 }
