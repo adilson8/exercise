@@ -22,6 +22,7 @@ public class FindPrimeNumber {
 		System.out.println(answer);
 		
 		// 시간초과, 메서드로 빼서 다시 해보자
+		
 	}
 
 }
