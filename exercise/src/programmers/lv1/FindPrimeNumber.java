@@ -6,23 +6,28 @@ public class FindPrimeNumber {
 	public static void main(String[] args) {
 		int n = 10;
 		
-		int noPrime = 1;
-
-		for (int i = 3; i <= n; i++) {
-			for (int j = 2; j < i; j++) {
-				if (i % j == 0) {
-					noPrime++;
-					break;
-				}
-			}
-		}
-		
-		int answer = n - noPrime;
-		
-		System.out.println(answer);
-		
-		// 시간초과, 메서드로 빼서 다시 해보자
-		// https://namu.wiki/w/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98%20%EC%B2%B4
+		// 2는 소수이기 때문에 초기값 1로 선언
+        int answer = 1;
+        
+        // 3부터 n까지 반복하여 소수의 개수 찾기
+        for (int i = 3; i <= n; i++) {
+        	boolean isPrime = true;
+        	
+        	// 해당 숫자 소수 판별로직
+        	for (int j = 2; j <= (int)Math.sqrt(i); j++){
+        		if (i % j == 0){
+        			isPrime = false;
+        			break;
+        		}
+        	}
+        	
+        	if (isPrime){
+        		answer++;
+        	}
+        	
+        }
+        
+        System.out.println(answer);
 	}
 
 }
