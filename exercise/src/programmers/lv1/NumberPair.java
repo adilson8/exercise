@@ -12,7 +12,6 @@ public class NumberPair {
 	public static void main(String[] args) {
 		
 		// 문제점 1 : 시간초과
-		// 문제점 2 : 수가 기하급수적으로 커지면 숫자가 이상해짐
 				
 		// answer : 321
 //		String X = "12321";
@@ -31,54 +30,52 @@ public class NumberPair {
 		String Y = "9999999999999999";
 		
 		String answer = "";
-				
-		List<Integer> listX = new ArrayList<>();
-		List<Integer> listY = new ArrayList<>();
-		List<Integer> commonNum = new ArrayList<>();
+		
+		List<Character> listX = new ArrayList<>();
+		List<Character> listY = new ArrayList<>();
+		List<Character> commonNum = new ArrayList<>();
 		
 		for (int i = 0; i < X.length(); i++) {
-			listX.add(Character.getNumericValue(X.charAt(i)));
+			listX.add(X.charAt(i));
 		}
-				
+		
 		for (int i = 0; i < Y.length(); i++) {
-			listY.add(Character.getNumericValue(Y.charAt(i)));
+			listY.add(Y.charAt(i));
 		}
-				
+		
 		// 공통숫자 찾기
 		for (int i = 0; i < listX.size(); i++){
 			for (int j = 0; j < listY.size(); j++){
-				if(listX.get(i) == listY.get(j)){
+				if(listX.get(i).equals(listY.get(j))){
 					commonNum.add(listY.get(j));
-					listY.set(j, -1);
+					listY.set(j, '-');
 					break;
 				}				
 			}
 		}
-				
-		for(Integer num : commonNum){
+		
+		for(Character num : commonNum){
 			System.out.println(num);
 		}
-				
+		
 		// 짝궁이 존재하지 않으면 짝궁은 -1
 		if (commonNum.isEmpty()){
 			answer = "-1";
 			System.out.println(answer);
 		}
-				
+		
 		// 공통숫자가 0만 있으면 짝궁은 0
-		Set<Integer> set = new HashSet<>(commonNum);
-		if (set.size() == 1 && set.contains(0)){
+		Set<Character> set = new HashSet<>(commonNum);
+		if (set.size() == 1 && set.contains('0')){
 			answer = "0";
 			System.out.println(answer);
 		}
-				
+		
 		// 짝궁 계산
 		Collections.sort(commonNum, Collections.reverseOrder());
-		int answerNum = 0;
-		for (int i = 0; i < commonNum.size(); i++){
-			answerNum += commonNum.get(i) * Math.pow(10, commonNum.size()-1-i);
+		for (Character c : commonNum){
+			answer += c;
 		}
-		answer = String.valueOf(answerNum);
 		System.out.println(answer);
 	}
 }
