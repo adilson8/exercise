@@ -1,27 +1,26 @@
 package programmers.lv1;
 
+import java.util.Stack;
+
 public class MakingBurgers {
 
-	public static void main(String[] args) {
-		// answer : 0
-//		int[] ingredient = {1, 3, 2, 1, 2, 1, 3, 1, 2};
-		
-		// answer : 2
-		int[] ingredient = {2, 1, 1, 2, 3, 1, 2, 3, 1};
-		
+	public static void main(int[] ingredient) {
 		int answer = 0;
+		Stack<Integer> tmp = new Stack<>();
 		
-		String tmp = "";
-		String burger = "1231";
-		for(int i = 0; ingredient.length > i; i++){
-			tmp += String.valueOf(ingredient[i]);
-			if (tmp.contains(burger)){
-				answer++;
-				
-				String[] splitedTmp = tmp.split(burger);
-				tmp = "";
-				for (String s : splitedTmp){ 
-					tmp += s;
+		for (int i : ingredient){
+			tmp.push(i);
+			
+			if (tmp.size() >= 4){
+				if (tmp.get(tmp.size()-1) == 1 
+				 && tmp.get(tmp.size()-2) == 3
+				 && tmp.get(tmp.size()-3) == 2
+				 && tmp.get(tmp.size()-4) == 1 ){
+					tmp.pop();
+					tmp.pop();
+					tmp.pop();
+					tmp.pop();
+					answer++;
 				}				
 			}
 		}
