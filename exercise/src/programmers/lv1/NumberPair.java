@@ -48,22 +48,13 @@ public class NumberPair {
 			}
 		}
 		
-		for (char y : charY){
-			if (mapY.get(String.valueOf(y)) == null){
-				mapY.put(String.valueOf(y), 1);
-			} else {
-				mapY.put(String.valueOf(y), mapY.get(String.valueOf(y))+1);
-			}
-		}
-		
-		// 공통숫자 찾기
-		for (String keyX : mapX.keySet()){
-			if (mapY.get(keyX) != null){
-				int cnt = (mapX.get(keyX) > mapY.get(keyX)) ? mapY.get(keyX) : mapX.get(keyX);
-				
-				for (int i = 0; i < cnt; i++){
-					commonNum.add(keyX);				
-				}
+		// 공통 숫자 찾기
+		for (Character y : charY){
+			String stringY = String.valueOf(y);
+			
+			if (mapX.get(stringY) != null && mapX.get(stringY) != 0){
+				commonNum.add(stringY);
+				mapX.put(stringY, mapX.get(stringY)-1);
 			}
 		}
 		
