@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class MakingBurgers {
 
+	// https://school.programmers.co.kr/learn/courses/30/lessons/133502
 	public static void main(int[] ingredient) {
 		int answer = 0;
 		Stack<Integer> tmp = new Stack<>();
