@@ -2,8 +2,10 @@ package programmers.lv1;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class NumberPair {
@@ -31,30 +33,41 @@ public class NumberPair {
 		
 		String answer = "";
 		
-		List<Character> listX = new ArrayList<>();
-		List<Character> listY = new ArrayList<>();
-		List<Character> commonNum = new ArrayList<>();
+		Map<String, Integer> mapX = new HashMap<>(); 
+		Map<String, Integer> mapY = new HashMap<>();
+		List<String> commonNum = new ArrayList<>();
 		
-		for (int i = 0; i < X.length(); i++) {
-			listX.add(X.charAt(i));
-		}
+		char[] charX = X.toCharArray();
+		char[] charY = Y.toCharArray();
 		
-		for (int i = 0; i < Y.length(); i++) {
-			listY.add(Y.charAt(i));
-		}
-		
-		// 공통숫자 찾기
-		for (int i = 0; i < listX.size(); i++){
-			for (int j = 0; j < listY.size(); j++){
-				if(listX.get(i).equals(listY.get(j))){
-					commonNum.add(listY.get(j));
-					listY.set(j, '-');
-					break;
-				}				
+		for (char x : charX){
+			if (mapX.get(String.valueOf(x)) == null){
+				mapX.put(String.valueOf(x), 1);
+			} else {
+				mapX.put(String.valueOf(x), mapX.get(String.valueOf(x))+1);
 			}
 		}
 		
-		for(Character num : commonNum){
+		for (char y : charY){
+			if (mapY.get(String.valueOf(y)) == null){
+				mapY.put(String.valueOf(y), 1);
+			} else {
+				mapY.put(String.valueOf(y), mapY.get(String.valueOf(y))+1);
+			}
+		}
+		
+		// 공통숫자 찾기
+		for (String keyX : mapX.keySet()){
+			if (mapY.get(keyX) != null){
+				int cnt = (mapX.get(keyX) > mapY.get(keyX)) ? mapY.get(keyX) : mapX.get(keyX);
+				
+				for (int i = 0; i < cnt; i++){
+					commonNum.add(keyX);				
+				}
+			}
+		}
+		
+		for(String num : commonNum){
 			System.out.println(num);
 		}
 		
@@ -65,17 +78,18 @@ public class NumberPair {
 		}
 		
 		// 공통숫자가 0만 있으면 짝궁은 0
-		Set<Character> set = new HashSet<>(commonNum);
-		if (set.size() == 1 && set.contains('0')){
+		Set<String> set = new HashSet<>(commonNum);
+		if (set.size() == 1 && set.contains("0")){
 			answer = "0";
 			System.out.println(answer);
 		}
 		
 		// 짝궁 계산
 		Collections.sort(commonNum, Collections.reverseOrder());
-		for (Character c : commonNum){
+		for (String c : commonNum){
 			answer += c;
 		}
+		
 		System.out.println(answer);
 	}
 }
