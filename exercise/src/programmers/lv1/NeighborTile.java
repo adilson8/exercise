@@ -27,19 +27,42 @@ public class NeighborTile {
 //		int h = 0;
 //		int w = 1;
 		
+		int answer = 0;
 		String target = board[h][w];
-		String left = board[h][w-1];
-		String right = board[h][w+1];
-		String up = board[h-1][w];
-		String down = board[h+1][w];
 		
-		List<String> neighbors = new ArrayList<>(); 
+		String left = "";
+		if(w > 0){
+			left = board[h][w-1];			
+		}
 		
-		System.out.println(target);
-		System.out.println(left);
-		System.out.println(right);
-		System.out.println(up);
-		System.out.println(down);
+		String right = "";
+		if (w+1 < board[h].length-1){
+			right = board[h][w+1];			
+		}
+		
+		String up = "";
+		if (h > 0){
+			up = board[h-1][w];			
+		}
+		
+		String down = "";
+		if (h+1 < board[w].length-1){
+			down = board[h+1][w];			
+		}
+		
+		List<String> neighbors = new ArrayList<>();
+		neighbors.add(left);
+		neighbors.add(right);
+		neighbors.add(up);
+		neighbors.add(down);
+		
+		for (String neighbor : neighbors){
+			if (target.equals(neighbor)) {
+				answer++;
+			}
+		}
+		
+		System.out.println(answer);
 		
 
 	}
