@@ -1,5 +1,6 @@
 package programmers.lv2;
 
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class ValidParentheses {
@@ -11,7 +12,6 @@ public class ValidParentheses {
 //		String s = ")()(";		
 		
 		String s = "())";		
-		
 		
 		boolean answer;
 		String[] arrS = s.split("");
@@ -26,7 +26,13 @@ public class ValidParentheses {
 					tmp = as;
 					stackS.push(as);
 				} else {
-					stackS.pop();
+					try {
+						stackS.pop();						
+					} catch (EmptyStackException ese) {
+						answer = false;
+						stackS.push("");
+						break;
+					}
 				}
 			}
 			
