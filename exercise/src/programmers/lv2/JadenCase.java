@@ -3,17 +3,8 @@ package programmers.lv2;
 public class JadenCase {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/12951
-	public static void main (String[] args){
+	public static String main (String s){
 
-		// answer = "3people Unfollowed Me"
-//		String s = "3people unFollowed me";
-		
-		// answer = "For The Last Week"
-//		String s = "for the last week";
-		
-		// answer = "  For The What 1what  "
-		String s = "  for the what 1what  ";
-		
 		String answer = ""; 
 		String[] splitS = s.split(" ");
 		
@@ -33,8 +24,13 @@ public class JadenCase {
 			}
 		}
 		
-		System.out.println(answer);
-
+		if(s.length() != answer.length()){
+			for (int i =0; i <= s.length() - answer.length(); i++){
+				answer += " ";				
+			}
+		}
+		
+		return answer;
 	}
 
 }
