@@ -6,44 +6,37 @@ import java.util.Stack;
 public class ValidParentheses {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/12909
-	public static void main (String[] args){
+	public static boolean main (String s){
 		
-		// answer = false;
-//		String s = ")()(";		
-		
-		String s = "())";		
-		
-		boolean answer;
+		boolean answer = false;
 		String[] arrS = s.split("");
 		Stack<String> stackS = new Stack<>();
-		String tmp = arrS[0];
 		
-		if (s.length()%2 !=0 || tmp.equals(")")){
+		if(arrS[0].equals(")") || s.length()%2 !=0){
 			answer = false;
+			return answer;
 		} else {
 			for (String as : arrS){
-				if(as.equals(tmp)){
-					tmp = as;
+				if (as.equals("(")){
 					stackS.push(as);
 				} else {
 					try {
 						stackS.pop();						
-					} catch (EmptyStackException ese) {
+					} catch (EmptyStackException ese){
 						answer = false;
-						stackS.push("");
-						break;
+						return answer;
 					}
 				}
 			}
 			
-			if(stackS.size() == 0){
+			if(stackS.isEmpty()){
 				answer = true;
 			} else {
 				answer = false;
 			}
 		}
 		
-		System.out.println(answer);
+        return answer;
 	}
 
 }
