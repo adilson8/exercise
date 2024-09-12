@@ -6,10 +6,13 @@ public class JadenCase {
 	public static void main (String[] args){
 
 		// answer = "3people Unfollowed Me"
-		String s = "3people unFollowed me";
+//		String s = "3people unFollowed me";
 		
 		// answer = "For The Last Week"
 //		String s = "for the last week";
+		
+		// answer = "  For The What 1what  "
+		String s = "  for the what 1what  ";
 		
 		String answer = ""; 
 		String[] splitS = s.split(" ");
