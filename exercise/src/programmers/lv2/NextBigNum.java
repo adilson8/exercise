@@ -10,16 +10,15 @@ public class NextBigNum {
 	public static void main (String[] args){
 		
 		// answer : 83
-		int n = 78;
+//		int n = 78;
 		
 		// answer : 23
-//		int n = 15;
+		int n = 15;
 
 		int answer = 0;
 		int tmp = n;
 		int nCnt = 0;
 		int tmpCnt = 0;
-		boolean flag = true;
 		
 		String binaryN = binaryConverter(n);
 		for (char c : binaryN.toCharArray()){
@@ -28,7 +27,7 @@ public class NextBigNum {
 			}
 		}
 		
-		while (flag){
+		while (true){
 			tmp += 1;
 			String binaryTmp = binaryConverter(tmp);
 			for (char c : binaryTmp.toCharArray()){
@@ -39,14 +38,13 @@ public class NextBigNum {
 			
 			if (tmpCnt==nCnt){
 				answer = tmp;
-				flag = false;
 				break;		
 			}
+			
+			tmpCnt = 0;
 		}
 		
-		
 		System.out.println(answer);
-
 	}
 	
 	public static String binaryConverter(int n){
