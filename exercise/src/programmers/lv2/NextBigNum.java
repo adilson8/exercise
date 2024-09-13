@@ -56,10 +56,14 @@ public class NextBigNum {
 			n = n/2;
 		}
 		
-		Collections.reverse(list);
+//		Collections.reverse(list);
+//		
+//		for (int l : list){
+//			binary += l;
+//		}
 		
-		for (int l : list){
-			binary += l;
+		for (int i = list.size()-1; i >= 0; i--){
+			binary += list.get(i);
 		}
 		
 		return binary;
