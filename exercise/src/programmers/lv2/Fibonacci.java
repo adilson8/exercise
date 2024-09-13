@@ -9,7 +9,10 @@ public class Fibonacci {
 //		int n = 3; 
 		
 		// answer : 5
-		int n = 5;
+//		int n = 5;
+		
+		// StackOverflowError 발생
+		int n = 100000;
 		
 		int fibonacci = fibonacci(n);
 		int answer = fibonacci % 1234567;
@@ -25,6 +28,7 @@ public class Fibonacci {
 		} else {
 			return fibonacci(n-2) + fibonacci(n-1); 
 		}
+		
 	}
 
 }
