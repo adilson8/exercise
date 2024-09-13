@@ -3,32 +3,29 @@ package programmers.lv2;
 public class Fibonacci {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/12945
-	public static void main (String[] args){
+	public static int main (int n) {
+        return fibonacci(n);
+    }
 
-		// answer : 2
-//		int n = 3; 
-		
-		// answer : 5
-//		int n = 5;
-		
-		// StackOverflowError 발생
-		int n = 100000;
-		
-		int fibonacci = fibonacci(n);
-		int answer = fibonacci % 1234567;
-		System.out.println(answer);
-	}
+    private static int fibonacci(int n) {
 
-	private static int fibonacci(int n) {
-		
-		if (n == 0){
-			return 0;
-		} else if (n == 1){
-			return 1;			
-		} else {
-			return fibonacci(n-2) + fibonacci(n-1); 
-		}
-		
-	}
+        if (n == 0){
+            return 0;
+        } else if (n == 1){
+            return 1;           
+        }
+
+        int a = 0;
+        int b = 1;
+        int fibonacci = 0;
+
+        for (int i = 2; i <= n; i++) {
+            fibonacci = (a + b) % 1234567;;
+            a = b;
+            b = fibonacci;
+        }
+
+        return fibonacci;
+    }
 
 }
