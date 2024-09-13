@@ -21,20 +21,31 @@ public class NextBigNum {
 		int tmpCnt = 0;
 		
 		String binaryN = binaryConverter(n);
-		for (char c : binaryN.toCharArray()){
+		char[] binaryNArr = binaryN.toCharArray();
+		char[] newArrBinaryN = new char[binaryNArr.length + 1];
+		for (char c : binaryNArr){
 			if (c == '1'){
 				nCnt++;
 			}
 		}
 		
 		while (true){
-			tmp += 1;
-			String binaryTmp = binaryConverter(tmp);
-			for (char c : binaryTmp.toCharArray()){
+			
+			char[] nextBinaryNArr;
+			
+			if (newArrBinaryN[0]!='1'){
+				nextBinaryNArr = nextBinaryValue(binaryNArr, newArrBinaryN);
+			}else {
+				nextBinaryNArr = nextBinaryValue(newArrBinaryN, newArrBinaryN);
+			}
+			
+			for (char c : nextBinaryNArr){
 				if (c == '1'){
 					tmpCnt++;
 				}
 			}
+			
+			tmp++;
 			
 			if (tmpCnt==nCnt){
 				answer = tmp;
@@ -47,6 +58,7 @@ public class NextBigNum {
 		System.out.println(answer);
 	}
 	
+
 	public static String binaryConverter(int n){
 		String binary = "";
 		List<Integer> list = new ArrayList<>();
@@ -68,5 +80,33 @@ public class NextBigNum {
 		
 		return binary;
 	}
-
+	
+	private static char[] nextBinaryValue(char[] binaryNArr, char[] newArrBinaryN) {
+		
+		boolean hasDigitIncreased = true;
+		
+		int i = binaryNArr.length-1;
+		for (; i >= 0; i--){
+			if (binaryNArr[i]=='0'){
+				binaryNArr[i] = '1';
+				hasDigitIncreased = false;
+				break;
+			}
+		}
+		
+		if (!hasDigitIncreased){
+			for (int j = i+1; j < binaryNArr.length; j++){
+				binaryNArr[j] = '0';
+			}
+			return binaryNArr;
+			
+		} else {
+			newArrBinaryN[0] = '1';
+			for (int k = 1; k < newArrBinaryN.length; k++){
+				newArrBinaryN[k] = '0';
+			}
+			return newArrBinaryN;	
+		}
+	}
+	
 }
