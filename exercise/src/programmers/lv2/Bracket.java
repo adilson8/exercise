@@ -7,21 +7,12 @@ public class Bracket {
 		int answer = 0;
 		
 		while (n > 1){
-			if (a%2 ==0){
-				if (a-b == 1){
-					answer++;
-					break;
-				}
-			}
-			
-			if (b%2 ==0){
-				if (b-a == 1){
-					answer++;
-					break;
-				}
-			}
-			
-			answer++;
+			if ((a % 2 == 0 && a - b == 1) || (b % 2 == 0 && b - a == 1)) {
+	            answer++;
+	            break;
+	        }
+
+	        answer++;
 			
 			if (a%2 == 0) {
 				a = a/2;
