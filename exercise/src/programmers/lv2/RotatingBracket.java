@@ -1,7 +1,5 @@
 package programmers.lv2;
 
-import java.util.Collection;
-
 public class RotatingBracket {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/76502
@@ -13,10 +11,14 @@ public class RotatingBracket {
 //		String s = "[)(]";
 		
 		// answer = 0;
-		String s = "}}}";
+//		String s = "}}}";
 		
 		// answer = 3;
 //		String s = "[](){}";
+		
+		// answer = 2;
+		String s = "()(()(()())())";
+		
 		
 		int answer = 0;
 		for (int i = 0; i < s.length(); i++){
@@ -61,7 +63,7 @@ public class RotatingBracket {
 		
 		char[] sCharArr = s.toCharArray();		
 		
-		// 여기서 유효한 괄호인지 체크하는 코드 작성		
+		// 유효한 괄호인지 체크	
 		for (int i = 0; i < sCharArr.length; i++) {			
 			if (sCharArr[i] == '[') {				
 				sCharArr[i] = 'x';
@@ -84,7 +86,17 @@ public class RotatingBracket {
 						sCharArr[j] = 'x';
 					};
 				}				
-			}
+			} 
+			
+//			else if (sCharArr[i] == ']' || sCharArr[i] == '}' || sCharArr[i] == ')') {
+//				System.out.println("어허");
+//				break;
+//			}
+//			
+//			for(char sc : sCharArr) {
+//				System.out.print(sc);
+//			}
+//			System.out.println();
 				
 		}		
 		
@@ -94,6 +106,7 @@ public class RotatingBracket {
 				break;
 			}
 		}
+		System.out.println("유효한 괄호 여부 : " + isValid);
 		System.out.println("/////////////////////////////////////");
 				
 		return isValid;
