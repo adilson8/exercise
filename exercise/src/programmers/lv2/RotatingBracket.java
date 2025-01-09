@@ -32,7 +32,15 @@ public class RotatingBracket {
 	}
 
 	private static String rotateS(String s) {		
-		String rotatedS = s.split("\\" + String.valueOf(s.charAt(0)))[1] + String.valueOf(s.charAt(0));
+//		String rotatedS = s.split("\\" + String.valueOf(s.charAt(0)))[1] + String.valueOf(s.charAt(0));
+		
+		String rotatedS = "";
+		char sFirstChar = s.charAt(0);
+		char[] sCharArr = s.toCharArray();
+		for (int i = 1; i < sCharArr.length; i++) {
+			rotatedS += String.valueOf(sCharArr[i]);
+		}
+		rotatedS += String.valueOf(sFirstChar);
 		
 		System.out.println( "변경전 s : " + s);		
 		System.out.println( "변경후 s : " + rotatedS);
