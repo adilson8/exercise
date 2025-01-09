@@ -13,10 +13,10 @@ public class RotatingBracket {
 //		String s = "[)(]";
 		
 		// answer = 0;
-//		String s = "}}}";
+		String s = "}}}";
 		
 		// answer = 3;
-		String s = "[](){}";
+//		String s = "[](){}";
 		
 		int answer = 0;
 		for (int i = 0; i < s.length(); i++){
@@ -31,7 +31,7 @@ public class RotatingBracket {
 		System.out.println(answer);
 	}
 
-	private static String rotateS(String s) {
+	private static String rotateS(String s) {		
 		String rotatedS = s.split("\\" + String.valueOf(s.charAt(0)))[1] + String.valueOf(s.charAt(0));
 		
 		System.out.println( "변경전 s : " + s);		
@@ -51,13 +51,41 @@ public class RotatingBracket {
 			return isValid;
 		}
 		
+		char[] sCharArr = s.toCharArray();		
+		
 		// 여기서 유효한 괄호인지 체크하는 코드 작성		
-		for (int i = 0; i < s.length(); i++) {
-			for (int j = i+1; j < s.length() - i+1; j++) {
-				
+		for (int i = 0; i < sCharArr.length; i++) {			
+			if (sCharArr[i] == '[') {				
+				sCharArr[i] = 'x';
+				for (int j = sCharArr.length-1; j > i; j--) {					
+					if (sCharArr[j] == ']') {
+						sCharArr[j] = 'x';
+					};
+				}
+			} else if (sCharArr[i] == '{') {
+				sCharArr[i] = 'x';
+				for (int j = sCharArr.length-1; j > i; j--) {
+					if (sCharArr[j] == '}') {
+						sCharArr[j] = 'x';
+					};
+				}
+			} else if (sCharArr[i] == '(') {
+				sCharArr[i] = 'x';
+				for (int j = sCharArr.length-1; j > i; j--) {
+					if (sCharArr[j] == ')') {
+						sCharArr[j] = 'x';
+					};
+				}				
 			}
+				
 		}		
 		
+		for (char sc : sCharArr) {
+			if (sc != 'x') {
+				isValid = false;
+				break;
+			}
+		}
 		System.out.println("/////////////////////////////////////");
 				
 		return isValid;
