@@ -18,8 +18,8 @@ public class RotatingBracket {
 		
 		int answer = 0;
 		for (int i = 0; i < s.length(); i++){
-			String rotatedS = rotateS(i);
-			boolean isValid = checkVaildBracket(rotatedS);
+			s = rotateS(s);
+			boolean isValid = checkVaildBracket(s);
 			
 			if (isValid){
 				answer++;
@@ -29,10 +29,12 @@ public class RotatingBracket {
 		System.out.println(answer);
 	}
 
-	private static String rotateS(int i) {
-		String rotatedS = "";
+	private static String rotateS(String s) {
+		String rotatedS = s.split("\\" + String.valueOf(s.charAt(0)))[1] + String.valueOf(s.charAt(0));
 		
-		// 여기서 i만큼 돌리는 코드 작성
+		System.out.println( "변경전 s : " + s);		
+		System.out.println( "변경후 s : " + rotatedS);		
+		System.out.println("/////////////////////////////////////");
 		
 		return rotatedS;
 	}
