@@ -18,7 +18,7 @@ public class RotatingBracket {
 		
 		int answer = 0;
 		for (int i = 0; i < s.length(); i++){
-			s = rotateS(s);
+			s = rotateS(s); 
 			boolean isValid = checkVaildBracket(s);
 			
 			if (isValid){
