@@ -1,11 +1,14 @@
 package programmers.lv2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RotatingBracket {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/76502
 	public static void main (String[] args){
 		// answer = 2;
-//		String s = "}]()[{";
+		String s = "}]()[{";
 		
 		// answer = 0;
 //		String s = "[)(]";
@@ -17,7 +20,7 @@ public class RotatingBracket {
 //		String s = "[](){}";
 		
 		// answer = 2;
-		String s = "()(()(()())())";
+//		String s = "()(()(()())())";
 		
 		
 		int answer = 0;
@@ -66,53 +69,54 @@ public class RotatingBracket {
 			return isValid;
 		}
 		
-		char[] sCharArr = s.toCharArray();		
+		List<String> sList = new ArrayList<>();
+		for (int i = 0; i < s.length(); i++) {
+			sList.add(String.valueOf(s.charAt(i)));
+		}
 		
-		// 유효한 괄호인지 체크	
-		for (int i = 0; i < sCharArr.length; i++) {			
-			if (sCharArr[i] == '[') {				
-				sCharArr[i] = 'x';
-				for (int j = sCharArr.length-1; j > i; j--) {					
-					if (sCharArr[j] == ']') {
-						sCharArr[j] = 'x';
-						break;
+		int i = 0;
+		Loop1 :
+		while (sList.size()!=0) {
+			if (sList.get(i).equals("[")) {				
+				sList.remove(i);
+				Loop2 :
+				for (int j = 0; j < sList.size(); j++) {					
+					if (sList.get(j).equals("]")) {
+						sList.remove(j);
+						break Loop2;
 					};
 				}
-			} else if (sCharArr[i] == '{') {
-				sCharArr[i] = 'x';
-				for (int j = sCharArr.length-1; j > i; j--) {
-					if (sCharArr[j] == '}') {
-						sCharArr[j] = 'x';
-						break;
+			} else if (sList.get(i).equals("{")) {
+				sList.remove(i);
+				Loop2 :
+				for (int j = 0; j < sList.size(); j++) {
+					if (sList.get(j).equals("}")) {
+						sList.remove(j);
+						break Loop2;
 					};
 				}
-			} else if (sCharArr[i] == '(') {
-				sCharArr[i] = 'x';
-				for (int j = sCharArr.length-1; j > i; j--) {
-					if (sCharArr[j] == ')') {
-						sCharArr[j] = 'x';
-						break;
+			} else if (sList.get(i).equals("(")) {
+				sList.remove(i);
+				Loop2 :
+				for (int j =0; j < sList.size(); j++) {
+					if (sList.get(j).equals(")")) {
+						sList.remove(j);
+						break Loop2;
 					};
 				}				
-			} 
-//			else if (sCharArr[i] == ']' || sCharArr[i] == '}' || sCharArr[i] == ')') {
-//				System.out.println("어허");
-//				break;
-//			}
+			} else if (sList.get(i).equals("]") || sList.get(i).equals("}") || sList.get(i).equals(")")) {
+				isValid = false;
+				break Loop1;
+			}
 			
-			for(char sc : sCharArr) {
-				System.out.print(sc);
+			for(String sl : sList) {
+				System.out.print(sl);
 			}
 			System.out.println();
 				
 		}		
 		
-		for (char sc : sCharArr) {
-			if (sc != 'x') {
-				isValid = false;
-				break;
-			}
-		}
+		
 		System.out.println("유효한 괄호 여부 : " + isValid);
 		System.out.println("/////////////////////////////////////");
 				
