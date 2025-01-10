@@ -53,9 +53,14 @@ public class RotatingBracket {
 	private static boolean checkVaildBracket(String s) {
 		boolean isValid = true;
 		
-		// ], }, ) 로 시작하면 무조건 X		
+		// ], }, ) 로 시작하거나 반대로 끝나면 무조건 X		
 		if (s.startsWith("]") || s.startsWith("}")  || s.startsWith(")") ) {
 			System.out.println("], }, ) 로 시작하니까 X 입니당.");
+			System.out.println("/////////////////////////////////////");
+			isValid = false;
+			return isValid;
+		} else if (s.endsWith("[") || s.endsWith("{")  || s.endsWith("(") ) {
+			System.out.println("[, {, ( 로 끝나니까 X 입니당.");
 			System.out.println("/////////////////////////////////////");
 			isValid = false;
 			return isValid;
@@ -70,6 +75,7 @@ public class RotatingBracket {
 				for (int j = sCharArr.length-1; j > i; j--) {					
 					if (sCharArr[j] == ']') {
 						sCharArr[j] = 'x';
+						break;
 					};
 				}
 			} else if (sCharArr[i] == '{') {
@@ -77,6 +83,7 @@ public class RotatingBracket {
 				for (int j = sCharArr.length-1; j > i; j--) {
 					if (sCharArr[j] == '}') {
 						sCharArr[j] = 'x';
+						break;
 					};
 				}
 			} else if (sCharArr[i] == '(') {
@@ -84,19 +91,19 @@ public class RotatingBracket {
 				for (int j = sCharArr.length-1; j > i; j--) {
 					if (sCharArr[j] == ')') {
 						sCharArr[j] = 'x';
+						break;
 					};
 				}				
 			} 
-			
 //			else if (sCharArr[i] == ']' || sCharArr[i] == '}' || sCharArr[i] == ')') {
 //				System.out.println("어허");
 //				break;
 //			}
-//			
-//			for(char sc : sCharArr) {
-//				System.out.print(sc);
-//			}
-//			System.out.println();
+			
+			for(char sc : sCharArr) {
+				System.out.print(sc);
+			}
+			System.out.println();
 				
 		}		
 		
