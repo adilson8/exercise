@@ -1,5 +1,8 @@
 package programmers.lv2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cache {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/17680
@@ -14,8 +17,8 @@ public class Cache {
 //		 cache hit이고 실행시간은 1이 되며 NewYork은 최신화가 되어 우선순위로 당겨진다(cache = ['Seoul', 'NewYork'])
 		
 //		// answer = 50;
-//		int cacheSize = 3; 
-//		String[] cities = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
+		int cacheSize = 3; 
+		String[] cities = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
 //		
 //		// answer = 21;
 //		int cacheSize = 3; 
@@ -32,10 +35,17 @@ public class Cache {
 //		// answer = 16;
 //		int cacheSize = 2; 
 //		String[] cities = {"Jeju", "Pangyo", "NewYork", "newyork"};
+//		
+//		// answer = 25;
+//		int cacheSize = 0; 
+//		String[] cities = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
 		
-		// answer = 25;
-		int cacheSize = 0; 
-		String[] cities = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
+		List<String> cache = new ArrayList<>();
+		for (int i = 0; i < cities.length; i++) {
+			
+			
+			cache.add(cities[i]);
+		}
 		
 
 	}
