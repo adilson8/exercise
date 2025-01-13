@@ -1,7 +1,6 @@
 package programmers.lv2;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 public class Cache {
 	
@@ -43,25 +42,25 @@ public class Cache {
 		int answer = 0;
 		
 		if (cacheSize == 0){
-			answer = 5 * cities.length;
+			answer = cities.length * 5;
 		} else {
 			// 여기가 일반적인 케이스 start
-			// 근데 Stack으로 하는게 맞는거 같은데...?
-			List<String> cache = new ArrayList<>();
+			Stack<String> cache = new Stack<>();
 			for (int i = 0; i < cities.length; i++) {
 				if (i == 0) {
 					cache.add(cities[i].toUpperCase());
 					answer += 1;
 				} else {
-//					// 여기서 부터 이제 돌면서 있는지 없는지 체크하고 있으면 1 추가 있으면 5추가
-//					// 추가로 순서도 땡겨줘야함 뭔말인지 알지?
-//					if (체크해서 있으면){
-//						// 맨뒤에 넣고
-//						// answer++;
-//					} else /*없으면*/ {
-//						// 맨뒤에 넣고
-//						// answer += 5;
-//					}
+					// 여기서 부터 이제 돌면서 있는지 없는지 체크하고 있으면 1 추가 있으면 5추가
+					if(cache.contains(cities[i].toUpperCase())){
+						cache.remove(cities[i].toUpperCase());
+						cache.add(cities[i].toUpperCase());
+						answer += 1;
+					} else {
+						cache.add(cities[i].toUpperCase());
+						answer += 5;
+					}
+					
 				}
 			}			
 		}
