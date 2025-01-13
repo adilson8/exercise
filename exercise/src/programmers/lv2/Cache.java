@@ -40,13 +40,33 @@ public class Cache {
 //		int cacheSize = 0; 
 //		String[] cities = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
 		
-		List<String> cache = new ArrayList<>();
-		for (int i = 0; i < cities.length; i++) {
-			
-			
-			cache.add(cities[i]);
+		int answer = 0;
+		
+		if (cacheSize == 0){
+			answer = 5 * cities.length;
+		} else {
+			// 여기가 일반적인 케이스 start
+			// 근데 Stack으로 하는게 맞는거 같은데...?
+			List<String> cache = new ArrayList<>();
+			for (int i = 0; i < cities.length; i++) {
+				if (i == 0) {
+					cache.add(cities[i].toUpperCase());
+					answer += 1;
+				} else {
+//					// 여기서 부터 이제 돌면서 있는지 없는지 체크하고 있으면 1 추가 있으면 5추가
+//					// 추가로 순서도 땡겨줘야함 뭔말인지 알지?
+//					if (체크해서 있으면){
+//						// 맨뒤에 넣고
+//						// answer++;
+//					} else /*없으면*/ {
+//						// 맨뒤에 넣고
+//						// answer += 5;
+//					}
+				}
+			}			
 		}
 		
+		System.out.println(answer);
 
 	}
 
