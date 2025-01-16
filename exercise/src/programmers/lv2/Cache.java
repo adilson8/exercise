@@ -1,6 +1,7 @@
 package programmers.lv2;
 
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Cache {
 	
@@ -16,8 +17,8 @@ public class Cache {
 //		 cache hit이고 실행시간은 1이 되며 NewYork은 최신화가 되어 우선순위로 당겨진다(cache = ['Seoul', 'NewYork'])
 		
 //		// answer = 50;
-		int cacheSize = 3; 
-		String[] cities = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
+//		int cacheSize = 3; 
+//		String[] cities = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
 //		
 //		// answer = 21;
 //		int cacheSize = 3; 
@@ -38,30 +39,29 @@ public class Cache {
 //		// answer = 25;
 //		int cacheSize = 0; 
 //		String[] cities = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
+//		
+		// answer = 22;
+		int cacheSize = 3; 
+		String[] cities = {"a", "b", "a", "c", "d", "a"};
 		
 		int answer = 0;
 		
 		if (cacheSize == 0){
 			answer = cities.length * 5;
 		} else {
-			// 여기가 일반적인 케이스 start
-			Stack<String> cache = new Stack<>();
+			Queue<String> cache = new LinkedList<>();
 			for (int i = 0; i < cities.length; i++) {
-				if (i == 0) {
+				if (!cache.contains(cities[i].toUpperCase())) {
+					if (i >= cacheSize) {
+						cache.poll();							
+					}
+					cache.add(cities[i].toUpperCase());
+					answer += 5;
+				} else {
+					cache.poll();
 					cache.add(cities[i].toUpperCase());
 					answer += 1;
-				} else {
-					// 여기서 부터 이제 돌면서 있는지 없는지 체크하고 있으면 1 추가 있으면 5추가
-					if(cache.contains(cities[i].toUpperCase())){
-						cache.remove(cities[i].toUpperCase());
-						cache.add(cities[i].toUpperCase());
-						answer += 1;
-					} else {
-						cache.add(cities[i].toUpperCase());
-						answer += 5;
-					}
-					
-				}
+				}		
 			}			
 		}
 		
