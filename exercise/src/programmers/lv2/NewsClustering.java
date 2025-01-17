@@ -65,8 +65,7 @@ public class NewsClustering {
 		} 
 		
 		double jakarta = (double) minusSet.size() / (double) sumSet.size();
-		
-		// 여기에 이제 * 65536 하는 계산 코드만들기
+		answer = (int)Math.floor(jakarta*100) *65536 / 100;
 		
 		System.out.println(answer);
 		
