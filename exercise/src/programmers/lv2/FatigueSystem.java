@@ -12,13 +12,20 @@ public class FatigueSystem {
 		int answer = 0;
 		int tmp = k;
 		
+		boolean[] visited = new boolean[dungeons.length];
+		
 		for (int i = 0; i < dungeons.length; i++) {
-				System.out.println(dungeons[i][0]);
-			for (int j = 0; j < 2; j++) {
-//				System.out.println(dungeons[i][j]);
+			if (k >= dungeons[i][0]) {			
+				visited[i] = true;
+				k -= dungeons[i][1];
+			} else {
+				visited[i] = false;
 			}
 		}
 		
+		for (boolean v : visited) {
+			System.out.println(v);
+		}
 		
 	}
 
