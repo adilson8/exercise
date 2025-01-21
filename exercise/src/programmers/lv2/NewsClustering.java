@@ -8,27 +8,7 @@ import java.util.Map;
 public class NewsClustering {
 
 	// https://school.programmers.co.kr/learn/courses/30/lessons/17677
-	public static void main(String[] args) {
-		// answer = 16384;
-//		String str1 = "FRANCE"; 
-//		String str2 = "french";
-		
-		// answer = 65536;
-//		String str1 = "handshake"; 
-//		String str2 = "shake hands";
-		
-		// answer = 43690;
-//		String str1 = "aa1+aa2"; 
-//		String str2 = "AAAA12"; 
-		
-		// answer = 65536;
-//		String str1 = "E=M*C^2"; 
-//		String str2 = "e=m*c^2";
-		
-		// answer = 43690;
-		String str1 = "ABABAB"; 
-		String str2 = "BABABA";
-		
+	public static int main(String str1, String str2) {		
 		int answer = 0;
 		
 		// 집합1 준비
@@ -110,14 +90,13 @@ public class NewsClustering {
 		double jaccard = (double) intersectionList.size() / (double) unionList.size();
 		answer = (int) Math.floor(jaccard * 65536);
 		
-		// 합집합 교집합 둘다 길이 0일때 처리해야함
-		if (answer == 0) {
+		// 예외처리
+		if (unionList.size() == 0 ||
+				(intersectionList.size() == 0 && unionList.size() == 0)) {
 			answer = 65536;
 		}
 		
-		System.out.println(answer);
-		
-		
+		return answer;
 	}
 
 }
