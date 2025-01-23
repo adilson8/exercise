@@ -13,12 +13,19 @@ public class FatigueSystem {
 		int tmp = k;
 		
 		boolean[] visited = new boolean[dungeons.length];
-		
+		answer = visitDungeon(k, dungeons, visited, answer);
+
+		System.out.println(answer);
+	}
+	
+	public static int visitDungeon(int k, int[][]dungeons, boolean[] visited, int answer) {
 		for (int i = 0; i < dungeons.length; i++) {
-			if (k >= dungeons[i][0]) {			
+			if (!visited[i] && k >= dungeons[i][0]) {			
 				visited[i] = true;
+				answer++;
 				k -= dungeons[i][1];
-			} else {
+				visitDungeon(k, dungeons, visited, answer);
+			} else if (!visited[i]) {
 				visited[i] = false;
 			}
 		}
@@ -27,6 +34,7 @@ public class FatigueSystem {
 			System.out.println(v);
 		}
 		
+		return answer;		
 	}
 
 }
