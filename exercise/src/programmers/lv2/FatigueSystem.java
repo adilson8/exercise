@@ -10,7 +10,7 @@ public class FatigueSystem {
 		int[][] dungeons = {{80,20}, {50,40}, {30,10}};
 		
 		int answer = 0;
-		int tmp = k;
+//		int tmp = k;
 		
 		boolean[] visited = new boolean[dungeons.length];
 		answer = visitDungeon(k, dungeons, visited, answer);
@@ -34,7 +34,7 @@ public class FatigueSystem {
 			System.out.println(v);
 		}
 		
-		return answer;		
+		return answer;
 	}
 
 }
