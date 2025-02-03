@@ -3,38 +3,28 @@ package programmers.lv2;
 public class FatigueSystem {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/87946
-	public static void main (String[] args) {
-		
-		// answer = 3;
-		int k = 80;
-		int[][] dungeons = {{80,20}, {50,40}, {30,10}};
-		
+	public static int main (int k, int[][] dungeons) {		
 		int answer = 0;
-//		int tmp = k;
 		
 		boolean[] visited = new boolean[dungeons.length];
-		answer = visitDungeon(k, dungeons, visited, answer);
-
-		System.out.println(answer);
+		answer = visitDungeon(k, dungeons, visited, 0);
+		
+		return answer;
 	}
 	
-	public static int visitDungeon(int k, int[][]dungeons, boolean[] visited, int answer) {
+	public static int visitDungeon(int k, int[][]dungeons, boolean[] visited, int count) {
+		int maxCount = count;
+		
 		for (int i = 0; i < dungeons.length; i++) {
 			if (!visited[i] && k >= dungeons[i][0]) {			
 				visited[i] = true;
-				answer++;
-				k -= dungeons[i][1];
-				visitDungeon(k, dungeons, visited, answer);
-			} else if (!visited[i]) {
-				visited[i] = false;
+				int nextCount = visitDungeon(k - dungeons[i][1], dungeons, visited, count+1);
+                maxCount = Math.max(maxCount, nextCount);
+                visited[i] = false;
 			}
 		}
 		
-		for (boolean v : visited) {
-			System.out.println(v);
-		}
-		
-		return answer;
+		return maxCount;
 	}
 
 }
