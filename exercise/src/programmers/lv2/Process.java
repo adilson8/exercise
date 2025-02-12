@@ -22,12 +22,12 @@ public class Process {
 		int answer = 0;
 		
 		Queue<Integer> pQueue  = new LinkedList<>();
-		Queue<Integer> indexQueue = new LinkedList<>(); // 인덱스 큐
+		Queue<Integer> idxQueue = new LinkedList<>(); // 인덱스 큐
 		int maxNum = 0;
 		
 		for (int i = 0; i < priorities.length; i++) {
             pQueue.add(priorities[i]);
-            indexQueue.add(i);
+            idxQueue.add(i);
             maxNum = Math.max(maxNum, priorities[i]);
         }
 		
@@ -36,8 +36,12 @@ public class Process {
 			if (pQueue.peek()<maxNum) {
 				pQueue.add(pQueue.peek());
 				pQueue.poll();
+				// 여기에 idxQueue 처리
+				
 			} else {
-				pQueue.poll();
+				pQueue.poll();				
+				// 여기에 idxQueue 처리
+				
 				maxNum = 0;
 				for (int a : pQueue) {
 					maxNum = Math.max(maxNum, a);
