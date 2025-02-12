@@ -1,6 +1,8 @@
 package programmers.lv2;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 
 public class Process {
@@ -20,14 +22,17 @@ public class Process {
 		int answer = 0;
 		
 		Queue<Integer> pQueue  = new LinkedList<>();
+		Queue<Integer> indexQueue = new LinkedList<>(); // 인덱스 큐
 		int maxNum = 0;
-		for (int p : priorities) {
-			pQueue.add(p);
-			maxNum = Math.max(maxNum, p);
-		}
+		
+		for (int i = 0; i < priorities.length; i++) {
+            pQueue.add(priorities[i]);
+            indexQueue.add(i);
+            maxNum = Math.max(maxNum, priorities[i]);
+        }
 		
 		// 이제 location 값인 2번째 인덱스가 몇번째로 실행되는지 answer에 저장하는 로직 추가필요
-		while (pQueue.size()!=0) { 
+		while (pQueue.size()!=0) {
 			if (pQueue.peek()<maxNum) {
 				pQueue.add(pQueue.peek());
 				pQueue.poll();
