@@ -20,16 +20,24 @@ public class LongJump {
 		// n이 6 : 13가지
 		// n이 7 : 21가지
 		
-		int answer = 0;
-		int n1 = 1;
-		int n2 = 2;
+		long answer = 0;
+		long n1 = 1;
+		long n2 = 2;
+		
+		if (n == 1) {
+			System.out.println(n1);
+		}
+		
+		if (n == 2) {
+			System.out.println(n2);
+		}
 		
 		for (int i = 3; i < n+1; i++) {
 			answer = n1 + n2;
 			n1 = n2;
 			n2 = answer;
-		}
-		
+		};
+        
 		System.out.println(answer%1234567);
 	}
 
