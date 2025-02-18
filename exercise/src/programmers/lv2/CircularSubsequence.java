@@ -6,11 +6,9 @@ import java.util.Set;
 public class CircularSubsequence {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/131701
-	public static void main (String[] args){
+	public static int main (int[] elements){
 		
-		// answer = 18
-		int[] elements = {7,9,1,1,4};
-		
+		int answer = 0;
 		Set<Integer> sumList = new HashSet<>();
 		
 		int tmp = 0;
@@ -28,16 +26,25 @@ public class CircularSubsequence {
 				}
 				sumList.add(tmp);
 			} else {
-			// 일반 케이스인 경우
+				// 일반 케이스인 경우
+				// i는 길이, j는 배열 원소의 시작 인덱스
 				for (int j = 0; j < elements.length; j++) {
-					// i는 길이, j는 배열 원소의 시작 인덱스
+					tmp = 0;
+					for (int k = 0; k < i; k++) {
+						try {
+							tmp += elements[j+k];						
+						} catch (ArrayIndexOutOfBoundsException aioobe) {
+							tmp += elements[j+k-elements.length];
+						}
+					}
+					sumList.add(tmp);
 				}
 								
 			}
 		}
 		
-		
-		System.out.println(sumList);
+		answer = sumList.size();
+		return answer;
 	}
 
 }
