@@ -24,7 +24,18 @@ public class NextBigNum {
 		System.out.println("7를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(7));		// 111
 		System.out.println("8를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(8));		// 1000
 		System.out.println("9를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(9));		// 1001
-		System.out.println("10를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(10));		// 1010		
+		System.out.println("10를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(10));		// 1010
+		
+		boolean flag = true;		
+		while (flag) {
+			int nextNum = n+1; 
+			if (Integer.bitCount(n) == Integer.bitCount(nextNum)){
+				break;
+			}
+			n++;
+		}
+		
+		System.out.println(n);
 
 //		int answer = 0;
 //		int tmp = n;
