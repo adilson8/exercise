@@ -15,16 +15,15 @@ public class NextBigNum {
 		// answer : 23
 		int n = 15;
 		
-		System.out.println("1를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(1));		// 1
-		System.out.println("2를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(2));		// 10
-		System.out.println("3를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(3));		// 11
-		System.out.println("4를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(4));		// 100
-		System.out.println("5를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(5));		// 101
-		System.out.println("6를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(6));		// 110
-		System.out.println("7를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(7));		// 111
-		System.out.println("8를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(8));		// 1000
-		System.out.println("9를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(9));		// 1001
-		System.out.println("10를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(10));		// 1010
+		System.out.println("15를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(15));		// n	
+		System.out.println("16를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(16));
+		System.out.println("17를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(17));
+		System.out.println("18를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(18));
+		System.out.println("19를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(19));
+		System.out.println("20를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(20));
+		System.out.println("21를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(21));
+		System.out.println("22를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(22));
+		System.out.println("23를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(23));		// nextBigNum!
 		
 		boolean flag = true;		
 		while (flag) {
