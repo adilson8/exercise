@@ -1,19 +1,15 @@
 package programmers.lv2;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class NextBigNum {
 
 	// https://school.programmers.co.kr/learn/courses/30/lessons/12911
 	public static void main (String[] args){
 		
 		// answer : 83
-//		int n = 78;
+		int n = 78;
 		
 		// answer : 23
-		int n = 15;
+//		int n = 15;
 		
 		System.out.println("15를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(15));		// n	
 		System.out.println("16를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(16));
@@ -25,16 +21,18 @@ public class NextBigNum {
 		System.out.println("22를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(22));
 		System.out.println("23를 2진수로 변환했을 때 1의 갯수 : " + Integer.bitCount(23));		// nextBigNum!
 		
-		boolean flag = true;		
-		while (flag) {
-			int nextNum = n+1; 
-			if (Integer.bitCount(n) == Integer.bitCount(nextNum)){
+		int compare = Integer.bitCount(n);
+		int nextNum = 0;
+		
+		while (true) {
+			nextNum = n+1; 
+			if (Integer.bitCount(nextNum)==compare){
 				break;
 			}
 			n++;
 		}
 		
-		System.out.println(n);
+		System.out.println(nextNum);
 
 //		int answer = 0;
 //		int tmp = n;
