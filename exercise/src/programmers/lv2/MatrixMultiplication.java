@@ -13,9 +13,8 @@ public class MatrixMultiplication {
 //		int[][] arr1 = {{2, 3, 2}, {4, 2, 4}, {3, 1, 4}};
 //		int[][] arr2 = {{5, 4, 3}, {2, 4, 1}, {3, 1, 1}};
 		
-		
-		for(int[] a1 : arr1){
-			for(int[] a2 : arr2){
+		for(int i = 0; i < arr1.length; i++){
+			for(int j = 0; j < arr2.length; j++){
 				
 			}			
 		}
