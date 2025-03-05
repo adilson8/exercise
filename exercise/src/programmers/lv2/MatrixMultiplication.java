@@ -34,11 +34,23 @@ public class MatrixMultiplication {
 //		C[2][1] = (4×3) + (1×3) = 12 + 3 = 15
 		
 		
-		for(int i = 0; i < arr1.length; i++){
-			for(int j = 0; j < arr2.length; j++){
-				
-			}			
+		for (int i = 0; i < arr1.length; i++) {            // 행
+		    for (int j = 0; j < arr2[0].length; j++) {     // 열
+		    	System.out.println("["+i+"]" + "["+j+"]" );
+		    }
 		}
+		    
+		// 이렇게 하면 4중포문... 이건 진짜 아님
+//		for(int i = 0; i < arr1.length; i++){
+//			for (int j = 0; j < arr1[i].length; j++){
+//				
+//				for(int i2 = 0; i2 < arr2.length; i2++){
+//					for (int j2 = 0; j2 < arr2[i2].length; j2++){
+//						
+//					}
+//				}
+//			}
+//		}
 		
 	}
 
