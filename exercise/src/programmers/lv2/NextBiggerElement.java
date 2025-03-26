@@ -13,7 +13,23 @@ public class NextBiggerElement {
 		
 		int[] answer = new int[numbers.length];
 		
-				
+		for(int i = 0; i < numbers.length; i++){
+			int nowNum = numbers[i];
+			
+			for (int j = i+1; j < numbers.length; j++){
+				int nextNum = numbers[j];
+				if (nowNum < nextNum){
+					answer[i] = nextNum;
+					break;
+				}
+			}
+			
+			if (answer[i] == 0){
+				answer[i] = -1;
+			}
+		}
+		
+		System.out.println();
 	}
 
 }
