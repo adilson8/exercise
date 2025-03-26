@@ -1,41 +1,38 @@
 package programmers.lv2;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class RollcakeCutting {
 	
-	public static void main(String[] args){
-		
-		// answer = 2
-//		int[] topping = {1, 2, 1, 3, 1, 4, 1, 2};
-		
-		// answer = 0
-		int[] topping = {1, 2, 3, 1, 4};
-		
+	// https://school.programmers.co.kr/learn/courses/30/lessons/132265?language=java
+	public static int main(int[] topping){
 		int answer = 0;
 		
-		for(int i = 1; i < topping.length; i++){
-			
-			Set<Integer> sliceA = new HashSet<>();
-			Set<Integer> sliceB = new HashSet<>();			
+		Map<Integer, Integer> rightSlice = new HashMap<>();
+		for(int t : topping){
+			rightSlice.put(t, rightSlice.getOrDefault(t, 0)+1);
+		}
+		
+		Set<Integer> leftSlice = new HashSet<>();
+		for(int t : topping){
+			leftSlice.add(t);
 
-			// sliceA
-			for(int j = 0; j < i; j++){
-				sliceA.add(topping[j]);
+			// 여기서 제거
+			rightSlice.put(t, rightSlice.get(t)-1);
+			if (rightSlice.get(t) == 0){
+				rightSlice.remove(t);
 			}
 			
-			// sliceB
-			for(int j = i; j < topping.length; j++){
-				sliceB.add(topping[j]);				
-			}
-			
-			if (sliceA.size() == sliceB.size()){
+			// 여기서 비교
+			if (leftSlice.size() == rightSlice.size()){
 				answer++;
 			}
 		}
 		
-		System.out.println(answer);
+		return answer;
 	}
 
 }
