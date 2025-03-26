@@ -1,35 +1,33 @@
 package programmers.lv2;
 
+import java.util.Stack;
+
 public class NextBiggerElement {
 	
 	// https://school.programmers.co.kr/learn/courses/30/lessons/154539
-	public static void main (String[] args){
-		
-		// answer = {3, 5, 5, -1}
-		int[] numbers = {2, 3, 3, 5};
-		
-		// answer = {-1, 5, 6, 6, -1, -1}
-//		int[] numbers = {9, 1, 5, 3, 6, 2};
+	public static int[] main (int[] numbers){
 		
 		int[] answer = new int[numbers.length];
 		
-		for(int i = 0; i < numbers.length; i++){
-			int nowNum = numbers[i];
-			
-			for (int j = i+1; j < numbers.length; j++){
-				int nextNum = numbers[j];
-				if (nowNum < nextNum){
-					answer[i] = nextNum;
+		Stack<Integer> stack = new Stack<>();
+		for (int i = numbers.length-1; i >= 0; i--){
+			while (!stack.isEmpty()){
+				if (numbers[i] < stack.peek()){
+					answer[i] = stack.peek();
 					break;
+				} else {
+					stack.pop();
 				}
 			}
 			
 			if (answer[i] == 0){
 				answer[i] = -1;
 			}
+			
+			stack.add(numbers[i]);
 		}
-		
-		System.out.println();
+
+		return answer;
 	}
 
 }
