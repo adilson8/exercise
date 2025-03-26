@@ -1,6 +1,7 @@
 package programmers.lv3;
 
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.PriorityQueue;
 
 public class OvertimeIndex {
 	
@@ -20,19 +21,27 @@ public class OvertimeIndex {
 //		int n = 3;
 		
 		long answer = 0;
-
-		for(int i = 0; i < n; i++){
-			Arrays.sort(works);
-			works[works.length-1] -= 1;
-			
-			if (works[works.length-1] < 0){
-				System.out.println("여기서 리턴 0" );
-			}
-		}	
 		
+		PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
 		for (int w : works){
-			answer += w*w;
+			pq.add(w);
 		}
+		
+		System.out.println(pq.peek());
+		
+
+//		for(int i = 0; i < n; i++){
+//			Arrays.sort(works);
+//			works[works.length-1] -= 1;
+//			
+//			if (works[works.length-1] < 0){
+//				System.out.println("여기서 리턴 0" );
+//			}
+//		}	
+//		
+//		for (int w : works){
+//			answer += w*w;
+//		}
 		
 		System.out.println(answer);
 		
